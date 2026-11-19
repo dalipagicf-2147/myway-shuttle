@@ -137,6 +137,34 @@ details[open] summary svg{transform:rotate(180deg)}
 .bar.on{transform:translate(-50%,0)}
 .bar .btn{flex:1;padding:16px 12px}
 .bar .btn.sq{flex:none;width:56px;padding:0;background:var(--navy);color:var(--gold2)}
+
+/* destination cards (home) */
+.hh{padding:40px 22px 24px}
+.hh h2{font-size:30px;font-weight:300;letter-spacing:-.01em;margin-top:10px;line-height:1.2}
+.hh h2 b{font-weight:700}
+.hh p{font-size:13.5px;color:var(--mut);margin-top:8px;line-height:1.5}
+.card{display:block;width:100%;position:relative;height:168px;overflow:hidden;color:#fff;border-top:3px solid var(--gold);background:var(--n2)}
+.card:last-of-type{border-bottom:3px solid var(--gold)}
+.card img,.card .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:active img{transform:scale(1.05)}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,11,56,.92) 0%,rgba(0,17,85,.55) 55%,rgba(0,17,85,.2) 100%)}
+.card .no{position:absolute;left:22px;top:18px;z-index:2;font-size:11px;letter-spacing:.2em;font-weight:700;color:var(--gold2)}
+.card .nm{position:absolute;left:22px;bottom:18px;z-index:2}
+.card .nm em{display:block;font-style:normal;font-size:10.5px;letter-spacing:.22em;font-weight:700;color:var(--gold2);text-transform:uppercase;margin-bottom:4px}
+.card .nm b{font-size:26px;font-weight:600;letter-spacing:-.01em}
+.card .pr{position:absolute;right:22px;bottom:18px;z-index:2;text-align:right}
+.card .pr small{display:block;font-size:10px;letter-spacing:.2em;color:#B7C0E4;font-weight:600;text-transform:uppercase}
+.card .pr b{font-size:21px;font-weight:700;color:var(--gold2)}
+.card .pr b i{font:600 11px Inter;margin-left:3px;color:#fff;letter-spacing:.1em}
+.card .ar{position:absolute;right:22px;top:18px;z-index:2;width:18px;height:18px;color:var(--gold2)}
+/* detail */
+.dbar{display:flex;justify-content:space-between;align-items:center;padding:14px 22px}
+.back{border:0;background:none;color:var(--gold2);font:700 11px Inter;letter-spacing:.18em;display:flex;align-items:center;gap:8px;cursor:pointer;padding:8px 0;text-transform:uppercase}
+.back svg{width:16px;height:16px}
+.dbar .lang{background:none}
+.dest{padding-top:0}
+.dh{padding-top:10px}
+.fin{padding-bottom:130px}
 /* reveal */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
 .rv.in{opacity:1;transform:none}
@@ -201,22 +229,22 @@ var D=[
  r:[SAR,'Lukavica','Pale','Jahorina']}
 ];
 var X={
-bs:{eye:'Sarajevo · Privatni transferi',h1:'Vaš privatni transfer, <em>od hotela do cilja</em>.',sub:'Privatno vozilo i privatni vozač, 24/7, s unaprijed poznatom cijenom.',seeP:'Pogledaj cijene',
+bs:{eye:'Sarajevo · Privatni transferi',h1:'Vaš privatni transfer, <em>od hotela do cilja</em>.',sub:'Privatno vozilo i privatni vozač, 24/7, s unaprijed poznatom cijenom.',seeP:'Pogledaj destinacije',
  tr:[['24/7','Dostupni u svako doba'],['Privatno','Vozilo i vozač samo za vas'],['Fiksne cijene','Unaprijed definisane'],['Preuzimanje','Na dogovorenom mjestu']],
  plT:'Naš <b>cjenik</b>',plS:'Dodirnite destinaciju za detalje.',od:'od',how:'Kako <b>rezervisati</b>',
  st:[['Odaberite','Izaberite destinaciju i vozilo.'],['Pošaljite poruku','Rezervišite putem WhatsAppa ili na recepciji hotela.'],['Vozač dolazi','Preuzimamo vas na dogovorenom mjestu.']],
  ct:'Kontakt',book:'Rezerviši',call:'Pozovi'},
-en:{eye:'Sarajevo · Private transfers',h1:'Your private transfer, <em>from hotel to destination</em>.',sub:'Private vehicle and private driver, 24/7, with the price known in advance.',seeP:'See prices',
+en:{eye:'Sarajevo · Private transfers',h1:'Your private transfer, <em>from hotel to destination</em>.',sub:'Private vehicle and private driver, 24/7, with the price known in advance.',seeP:'View destinations',
  tr:[['24/7','Available at any time'],['Private','Vehicle and driver just for you'],['Fixed prices','Defined in advance'],['Pickup','At the agreed place']],
  plT:'Our <b>price list</b>',plS:'Tap a destination for details.',od:'from',how:'How to <b>book</b>',
  st:[['Choose','Pick a destination and a vehicle.'],['Send a message','Book via WhatsApp or at your hotel reception.'],['Driver arrives','We pick you up at the agreed place.']],
  ct:'Contact',book:'Book',call:'Call'},
-de:{eye:'Sarajevo · Privattransfers',h1:'Ihr privater Transfer, <em>vom Hotel bis zum Ziel</em>.',sub:'Privates Fahrzeug und privater Fahrer, rund um die Uhr, mit vorab bekanntem Preis.',seeP:'Preise ansehen',
+de:{eye:'Sarajevo · Privattransfers',h1:'Ihr privater Transfer, <em>vom Hotel bis zum Ziel</em>.',sub:'Privates Fahrzeug und privater Fahrer, rund um die Uhr, mit vorab bekanntem Preis.',seeP:'Reiseziele ansehen',
  tr:[['24/7','Jederzeit erreichbar'],['Privat','Fahrzeug und Fahrer nur für Sie'],['Feste Preise','Vorab festgelegt'],['Abholung','Am vereinbarten Ort']],
  plT:'Unsere <b>Preisliste</b>',plS:'Tippen Sie auf ein Reiseziel für Details.',od:'ab',how:'So <b>buchen</b> Sie',
  st:[['Auswählen','Reiseziel und Fahrzeug wählen.'],['Nachricht senden','Buchen Sie per WhatsApp oder an der Hotelrezeption.'],['Fahrer kommt','Wir holen Sie am vereinbarten Ort ab.']],
  ct:'Kontakt',book:'Buchen',call:'Anrufen'},
-tr:{eye:'Saraybosna · Özel transferler',h1:'Özel transferiniz, <em>otelinizden varış noktanıza</em>.',sub:'Özel araç ve özel şoför, 7/24, fiyat önceden belli.',seeP:'Fiyatları gör',
+tr:{eye:'Saraybosna · Özel transferler',h1:'Özel transferiniz, <em>otelinizden varış noktanıza</em>.',sub:'Özel araç ve özel şoför, 7/24, fiyat önceden belli.',seeP:'Varış noktalarını gör',
  tr:[['7/24','Her zaman ulaşılabilir'],['Özel','Araç ve şoför yalnızca size ait'],['Sabit fiyat','Önceden belirlenmiş'],['Karşılama','Anlaşılan noktada']],
  plT:'<b>Fiyat</b> listemiz',plS:'Ayrıntılar için bir varış noktasına dokunun.',od:'başlayan',how:'Nasıl <b>rezervasyon</b> yapılır',
  st:[['Seçin','Varış noktasını ve aracı seçin.'],['Mesaj gönderin','WhatsApp’tan veya otel resepsiyonundan rezervasyon yapın.'],['Şoför gelir','Sizi anlaşılan yerden alırız.']],
@@ -230,7 +258,7 @@ function L(o){return typeof o=='string'?o:o[lang]}
 function minp(d){return d.p===null?null:(d.k=='air'?50:d.p-20)}
 function wa(txt){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(txt)}
 var I={
- wa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.500a8.500 8.500 0 0 1-12.600 7.400L3 20l1.200-4.200A8.500 8.500 0 1 1 20 11.500z"/><path d="M9 9.500c.3 2 2 3.800 4.500 4.500l1.200-1.200-1.800-1-.8.600c-.8-.4-1.400-1-1.800-1.800l.6-.8-1-1.800z"/></svg>',
+ wa:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.200-.3.200-.5.100-.7-.3-1.500-.8-2.100-1.400-.6-.6-1-1.200-1.300-1.800-.1-.2 0-.4.100-.5l.4-.5.2-.4c.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.300.7 3.100.6.500-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg>',
  ph:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',
  ml:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>',
  dn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
@@ -253,43 +281,55 @@ function dest(d,i){var t=Object.assign({},T[lang],X[lang]),k=d.k;
  var gal=im.length?'<div class="gal'+(im.length==1?' one':'')+'">'+im.map(function(u){return '<img alt="'+L(d.n)+'" loading="lazy" decoding="async" src="'+u+'">'}).join('')+'</div>':'';
  var rt=d.r?'<details><summary>'+t.route+I.dn+'</summary><div class="route">'+d.r.map(function(p,j){return '<div class="rp '+(j==0?'s':j==d.r.length-1?'e':'')+'"><i></i><div><b>'+L(p)+'</b>'+(j==0?'<span>'+t.start+'</span>':'')+'</div></div>'}).join('')+'</div><div class="dur"><span>'+t.dur+'</span><b>~'+d.d+'</b></div></details>':'';
  var pill=d.d?'<span class="pill">'+I.ck+'~'+d.d+'</span>':'';
- return '<section class="dest" id="d-'+k+'"><div class="gl"></div><div class="dh rv"><span class="no">'+('0'+(i+1)).slice(-2)+' / 0'+D.length+'</span><em>'+L(d.tl)+'</em><h3>'+L(d.n)+'</h3>'+(d.sub?'<small>'+L(d.sub)+'</small>':'')+pill+'</div>'
+ return '<section class="dest" id="d-'+k+'"><div class="dh rv"><span class="no">'+('0'+(i+1)).slice(-2)+' / 0'+D.length+'</span><em>'+L(d.tl)+'</em><h3>'+L(d.n)+'</h3>'+(d.sub?'<small>'+L(d.sub)+'</small>':'')+pill+'</div>'
  +'<div class="rv">'+gal+'</div>'
  +'<div class="pw rv"><span class="lbl">'+t.pr+'</span><div class="pgrid">'+left+right+'</div><p class="hint">'+t.hint+'</p></div>'
  +'<p class="txt rv">'+L(d.t)+' <b>'+END[lang]+'</b></p>'+rt
- +'<div class="dcta rv"><a class="btn g" data-cta="'+k+'" target="_blank" rel="noopener">'+I.wa+t.book+' · '+L(d.n)+'</a></div></section>'}
+ +'</section>'}
 function ctaHref(k){var t=Object.assign({},T[lang],X[lang]),d=D.filter(function(x){return x.k==k})[0],txt=t.wa+L(d.n);
  if(sel[k]!==undefined){var c=document.querySelector('.pcard[data-k="'+k+'"][data-i="'+sel[k]+'"]');if(c)txt+=' · '+c.getAttribute('data-lbl')}
  return wa(txt)}
-function render(){var t=Object.assign({},T[lang],X[lang]);
+function langBtns(){return '<div class="lang">'+LANGS.map(function(l){return '<button data-l="'+l[0]+'"'+(l[0]==lang?' class="on"':'')+'>'+l[2]+'</button>'}).join('')+'</div>'}
+function cardImg(k){var a=IMG[k];return a&&a.length?'<img alt="" loading="lazy" decoding="async" src="'+a[0]+'">':'<div class="ph" style="background:linear-gradient(135deg,#000B38,#12307a 60%,#C9A24B 160%)"></div>'}
+var CAR='<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+function home(t){
  var hero=IMG.mos&&IMG.mos[0]?'<img class="hbg" alt="" src="'+IMG.mos[0]+'">':'';
- $('app').innerHTML=
- '<header class="hero">'+hero+'<div class="top"><div class="lang">'+LANGS.map(function(l){return '<button data-l="'+l[0]+'"'+(l[0]==lang?' class="on"':'')+'>'+l[2]+'</button>'}).join('')+'</div></div>'
- +'<div class="hlogo">'+LOGO+'</div>'
+ return '<header class="hero">'+hero+'<div class="top">'+langBtns()+'</div><div class="hlogo">'+LOGO+'</div>'
  +'<div class="hbot"><div class="eyebrow lbl">'+t.eye+'</div><h1>'+t.h1+'</h1><p class="hsub">'+t.sub+'</p>'
- +'<div class="btns"><a class="btn g" id="hcta" target="_blank" rel="noopener">'+I.wa+t.cta+'</a><a class="btn o" href="#cjenik">'+t.seeP+'</a></div><div class="scrollh">'+ARR+'</div></div></header>'
- +'<div class="trust">'+t.tr.map(function(x,i){return '<div class="tr rv">'+I['t'+i]+'<b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('')+'</div>'
- +'<section class="sec rv" id="cjenik"><span class="lbl">'+t.hLbl+'</span><h2>'+t.plT+'</h2><p class="s">'+t.plS+'</p><div class="pls">'
- +D.map(function(d,i){var m=minp(d);return '<a class="pl" href="#d-'+d.k+'"><span class="n">'+('0'+(i+1)).slice(-2)+'</span><span class="nm"><b>'+L(d.n)+'</b><em>'+L(d.tl)+(d.d?' · ~'+d.d:'')+'</em></span>'+(m===null?'<span class="pr t">'+t.tba+'</span>':'<span class="pr"><small>'+t.od+'</small>'+m+'<i>'+t.km+'</i></span>')+'</a>'}).join('')+'</div></section>'
- +D.map(dest).join('')
- +'<div class="gl" style="margin-top:46px"></div><section class="sec rv"><span class="lbl">My Way</span><h2>'+t.how+'</h2><div class="steps">'+t.st.map(function(s,i){return '<div class="st"><div class="num">'+(i+1)+'</div><div><b>'+s[0]+'</b><span>'+s[1]+'</span></div></div>'}).join('')+'</div></section>'
- +'<footer class="foot rv">'+LOGO+'<div class="gl"></div><span class="lbl">'+t.ct+'</span><div class="crow">'
+ +'<div class="btns"><a class="btn g" id="hcta" target="_blank" rel="noopener">'+I.wa+t.cta+'</a><a class="btn o" href="#" id="seeD">'+t.seeP+'</a></div><div class="scrollh">'+ARR+'</div></div></header>'
+ +'<section id="dest"><div class="hh"><span class="lbl">'+t.hLbl+'</span><h2>'+t.hTtl+'</h2><p>'+t.hSub+'</p></div>'
+ +D.map(function(d,i){var m=minp(d);
+  return '<a class="card" href="#'+d.k+'">'+cardImg(d.k)+'<span class="no">'+('0'+(i+1)).slice(-2)+'</span>'+CAR+'<span class="nm"><em>'+L(d.tl)+'</em><b>'+L(d.n)+'</b></span><span class="pr">'+(m===null?'<b style="font-size:12px;letter-spacing:.16em">'+t.tba+'</b>':'<small>'+t.od+'</small><b>'+m+'<i>'+t.km+'</i></b>')+'</span></a>'}).join('')+'</section>'
+ +'<section class="sec"><span class="lbl">My Way</span><h2>'+t.how+'</h2><div class="steps">'+t.st.map(function(s,i){return '<div class="st"><div class="num">'+(i+1)+'</div><div><b>'+s[0]+'</b><span>'+s[1]+'</span></div></div>'}).join('')+'</div></section>'
+ +'<footer class="foot">'+LOGO+'<div class="gl"></div><span class="lbl">'+t.ct+'</span><div class="crow">'
  +'<a class="c" href="'+wa(t.wa)+'" target="_blank" rel="noopener">'+I.wa+'WhatsApp · 061 342 302</a>'
  +'<a class="c" href="tel:+38761342302">'+I.ph+'061 342 302</a><a class="c" href="tel:+387603110086">'+I.ph+'060 311 0086</a>'
- +'<a class="c" href="mailto:'+MAIL+'">'+I.ml+MAIL+'</a></div><p>'+t.fOpen+'</p></footer>';
- $('bar').innerHTML='<a class="btn g" id="bcta" target="_blank" rel="noopener">'+I.wa+t.cta+'</a><a class="btn o sq" href="tel:+38761342302" aria-label="'+t.call+'">'+I.ph+'</a>';
- $('hcta').href=wa(t.wa);$('bcta').href=wa(t.wa);
- [].forEach.call(document.querySelectorAll('[data-cta]'),function(a){a.href=ctaHref(a.getAttribute('data-cta'))});
- [].forEach.call(document.querySelectorAll('.lang button'),function(b){b.onclick=function(){lang=b.getAttribute('data-l');document.documentElement.lang=lang;render()}});
- [].forEach.call(document.querySelectorAll('.pcard'),function(c){c.onclick=function(){var k=c.getAttribute('data-k'),i=+c.getAttribute('data-i');sel[k]=(sel[k]===i)?undefined:i;
-  [].forEach.call(document.querySelectorAll('.pcard[data-k="'+k+'"]'),function(x){x.classList.toggle('sel',+x.getAttribute('data-i')===sel[k])});
-  document.querySelector('[data-cta="'+k+'"]').href=ctaHref(k)}});
+ +'<a class="c" href="mailto:'+MAIL+'">'+I.ml+MAIL+'</a></div><p>'+t.fOpen+'</p></footer>'}
+function detail(d,t){var i=D.indexOf(d);
+ return '<div class="dbar"><button class="back" id="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>'+t.back+'</button>'+langBtns()+'</div>'
+ +'<div class="fin">'+dest(d,i)+'</div>'}
+var cur=null;
+function render(keep){var t=Object.assign({},T[lang],X[lang]);
+ var k=location.hash.replace('#','');var d=D.filter(function(x){return x.k==k})[0];
+ var changed=(d?d.k:null)!==cur;cur=d?d.k:null;
+ $('app').innerHTML=d?detail(d,t):home(t);
+ var wb=wa(t.wa);
+ $('bar').innerHTML='<a class="btn g" id="bcta" target="_blank" rel="noopener">'+I.wa+(d?t.book+' · '+L(d.n):t.cta)+'</a><a class="btn o sq" href="tel:+38761342302" aria-label="'+t.call+'">'+I.ph+'</a>';
+ $('bcta').href=d?ctaHref(d.k):wb;
+ if($('hcta'))$('hcta').href=wb;
+ if($('seeD'))$('seeD').onclick=function(e){e.preventDefault();document.getElementById('dest').scrollIntoView({behavior:'smooth'})};
+ if($('back'))$('back').onclick=function(){location.hash=''};
+ [].forEach.call(document.querySelectorAll('.lang button'),function(b){b.onclick=function(){lang=b.getAttribute('data-l');document.documentElement.lang=lang;render(true)}});
+ [].forEach.call(document.querySelectorAll('.pcard'),function(c){c.onclick=function(){var kk=c.getAttribute('data-k'),i=+c.getAttribute('data-i');sel[kk]=(sel[kk]===i)?undefined:i;
+  [].forEach.call(document.querySelectorAll('.pcard[data-k="'+kk+'"]'),function(x){x.classList.toggle('sel',+x.getAttribute('data-i')===sel[kk])});
+  $('bcta').href=ctaHref(kk)}});
  var rv=document.querySelectorAll('.rv');
- if(!first||!('IntersectionObserver' in window)){[].forEach.call(rv,function(e){e.classList.add('in')})}
+ if(!('IntersectionObserver' in window)||keep===true||!first){[].forEach.call(rv,function(e){e.classList.add('in')})}
  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});[].forEach.call(rv,function(e){io.observe(e)})}
- first=false;bar()}
-function bar(){var h=document.querySelector('.hero');var on=window.scrollY>(h?h.offsetHeight*.55:300);$('bar').classList.toggle('on',on)}
+ first=false;if(keep!==true&&changed)window.scrollTo(0,0);bar()}
+function bar(){var h=document.querySelector('.hero');var on=cur?true:window.scrollY>(h?h.offsetHeight*.55:300);$('bar').classList.toggle('on',on)}
 window.addEventListener('scroll',bar,{passive:true});
+window.addEventListener('hashchange',function(){render()});
 document.documentElement.lang=lang;render();
 </script>
 </body>
