@@ -79,8 +79,10 @@ h1 em{font-style:normal;font-weight:800;color:var(--gold2)}
 .pill svg{width:14px;height:14px;color:var(--gold2)}
 .gal{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 22px 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .gal::-webkit-scrollbar{display:none}
-.gal img{flex:none;width:84%;height:252px;object-fit:cover;scroll-snap-align:center;border:1px solid var(--line);background:var(--n2)}
-.gal.one img{width:100%}
+.gal .gi{flex:none;width:84%;height:252px;position:relative;scroll-snap-align:center;border:1px solid var(--line);background:var(--n2);overflow:hidden}
+.gal .gi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gal .gi:after{content:"";position:absolute;inset:0;background:rgba(0,17,85,.55)}
+.gal.one .gi{width:100%}
 .pw{padding:24px 22px 0}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .pcard{position:relative;border:1.5px solid var(--gold);padding:16px 14px 14px;background:transparent;cursor:pointer;transition:transform .25s,background .25s,box-shadow .25s,color .25s;display:flex;flex-direction:column;justify-content:space-between;min-height:160px;user-select:none;-webkit-user-select:none}
@@ -269,6 +271,7 @@ tr:{eye:'Saraybosna · Özel transferler',h1:'Özel transferiniz, <em>otelinizde
 var WA='38761342302',MAIL='optima.ba.sa@gmail.com';
 var lang=(function(){var l=((navigator.language||'bs')+'').slice(0,2);return {de:'de',tr:'tr',en:'en'}[l]||'bs'})();
 var sel={},first=true;
+var POS={air:'50% 45%',loc:'50% 50%',mos:'50% 55%',spl:'50% 60%',kot:'50% 55%',bje:'50% 35%',jah:'50% 55%'};
 function $(i){return document.getElementById(i)}
 function L(o){return typeof o=='string'?o:o[lang]}
 function minp(d){return d.p===null?null:(d.k=='air'?50:d.p-20)}
@@ -294,7 +297,7 @@ function dest(d,i){var t=Object.assign({},T[lang],X[lang]),k=d.k;
  else if(k=='air'){left=pc(k,0,I.car,t.p14,t.car,A(50));right=pc(k,1,I.van,t.p5,t.van,'<div class="rws">'+[[5,60],[6,70],[7,80]].map(function(r){return '<div class="rw"><span>'+r[0]+t.pp+'</span><b>'+r[1]+'<i>'+t.km+'</i></b></div>'}).join('')+'</div>')}
  else{left=pc(k,0,I.car,t.p14,t.car,A(d.p-20));right=pc(k,1,I.van,t.p5,t.van,A(d.p))}
  var im=IMG[k]||[];
- var gal=im.length?'<div class="gal'+(im.length==1?' one':'')+'">'+im.map(function(u){return '<img alt="'+L(d.n)+'" loading="lazy" decoding="async" src="'+u+'">'}).join('')+'</div>':'';
+ var gal=im.length?'<div class="gal'+(im.length==1?' one':'')+'">'+im.map(function(u){return '<div class="gi"><img alt="'+L(d.n)+'" loading="lazy" decoding="async" style="object-position:'+(POS[k]||'50% 50%')+'" src="'+u+'"></div>'}).join('')+'</div>':'';
  var rt=d.r?'<details><summary>'+t.route+I.dn+'</summary><div class="route">'+d.r.map(function(p,j){return '<div class="rp '+(j==0?'s':j==d.r.length-1?'e':'')+'"><i></i><div><b>'+L(p)+'</b>'+(j==0?'<span>'+t.start+'</span>':'')+'</div></div>'}).join('')+'</div><div class="dur"><span>'+t.dur+'</span><b>~'+d.d+'</b></div></details>':'';
  var pill=d.d?'<span class="pill">'+I.ck+'~'+d.d+'</span>':'';
  return '<section class="dest" id="d-'+k+'"><div class="dh rv"><span class="no">'+('0'+(i+1)).slice(-2)+' / 0'+D.length+'</span><em>'+L(d.tl)+'</em><h3>'+L(d.n)+'</h3>'+(d.sub?'<small>'+L(d.sub)+'</small>':'')+pill+'</div>'
@@ -306,7 +309,7 @@ function ctaHref(k){var t=Object.assign({},T[lang],X[lang]),d=D.filter(function(
  if(sel[k]!==undefined){var c=document.querySelector('.pcard[data-k="'+k+'"][data-i="'+sel[k]+'"]');if(c)txt+=' · '+c.getAttribute('data-lbl')}
  return wa(txt)}
 function langBtns(){return '<div class="lang">'+LANGS.map(function(l){return '<button data-l="'+l[0]+'"'+(l[0]==lang?' class="on"':'')+'>'+l[2]+'</button>'}).join('')+'</div>'}
-function cardImg(k){var a=IMG[k];return a&&a.length?'<img alt="" loading="lazy" decoding="async" src="'+a[0]+'">':'<div class="ph" style="background:#001155"></div>'}
+function cardImg(k){var a=IMG[k];return a&&a.length?'<img alt="" loading="lazy" decoding="async" style="object-position:'+(POS[k]||'50% 50%')+'" src="'+a[0]+'">':'<div class="ph" style="background:#001155"></div>'}
 var CAR='<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 function home(t){
  var hero=IMG.mos&&IMG.mos[0]?'<img class="hbg" alt="" src="'+IMG.mos[0]+'">':'';
