@@ -101,6 +101,8 @@ h1 em{font-style:normal;font-weight:800;color:var(--gold2)}
 .pcard.sel .rw{border-color:rgba(0,17,85,.3)}
 .pcard.sel .ck{background:var(--navy);border-color:var(--navy);opacity:1;box-shadow:inset 0 0 0 4px var(--gold)}
 .pcard:active{transform:scale(.98)}
+.cashn{font-size:13px;font-weight:700;color:var(--gold,#C9A24B);margin-top:10px}
+.cashb{margin:0 20px 8px;padding:14px 16px;border:1px solid #C9A24B;border-radius:14px;background:rgba(201,162,75,.08);display:flex;flex-direction:column;gap:4px}.cashb b{color:#C9A24B;font-size:14px}.cashb span{font-size:12px;opacity:.8}
 .hint{font-size:11px;color:var(--mut);margin-top:10px;letter-spacing:.04em}
 .txt{padding:22px 22px 0;font-size:15px;line-height:1.72;color:#CBD3EE;font-weight:400}
 .txt b{font-weight:600;color:var(--gold2)}
@@ -245,6 +247,8 @@ var D=[
      'Saraybosna’dan Pale üzerinden yaklaşık 40 dakika uzaklıkta bir Olimpiyat dağı. Kışın kayak, yazın yürüyüş ve temiz dağ havası için ideal.'),
  r:[SAR,'Lukavica','Pale','Jahorina']}
 ];
+var CASH={bs:['Plaćanje: samo gotovinom (cash only)','Cijene su prikazane za putničko vozilo; cijene za kombi pogledajte u detaljima destinacije.'],en:['Payment: cash only','Prices shown are for a car; see the destination details for van prices.'],de:['Zahlung: nur Barzahlung (cash only)','Angezeigte Preise gelten für den Pkw; Van-Preise finden Sie in den Details.'],tr:['Ödeme: yalnızca nakit (cash only)','Gösterilen fiyatlar binek araç içindir; minibüs fiyatları ayrıntılardadır.']};
+function cs(t){var l=(typeof lang!=='undefined'&&CASH[lang])?lang:'bs';return CASH[l]}
 var X={
 bs:{eye:'Sarajevo · Privatni transferi',h1:'Vaš privatni transfer, <em>od hotela do cilja</em>.',sub:'Privatno vozilo i privatni vozač, 24/7, s unaprijed poznatom cijenom.',seeP:'Pogledaj destinacije',
  tr:[['24/7','Dostupni u svako doba'],['Privatno','Vozilo i vozač samo za vas'],['Fiksne cijene','Unaprijed definisane'],['Preuzimanje','Na dogovorenom mjestu']],
@@ -301,7 +305,7 @@ function dest(d,i){var t=Object.assign({},T[lang],X[lang]),k=d.k;
  var pill=d.d?'<span class="pill">'+I.ck+'~'+d.d+'</span>':'';
  return '<section class="dest" id="d-'+k+'"><div class="dh rv"><span class="no">'+('0'+(i+1)).slice(-2)+' / 0'+D.length+'</span><em>'+L(d.tl)+'</em><h3>'+L(d.n)+'</h3>'+(d.sub?'<small>'+L(d.sub)+'</small>':'')+pill+'</div>'
  +'<div class="rv">'+gal+'</div>'
- +'<div class="pw rv"><span class="lbl">'+t.pr+'</span><div class="pgrid">'+left+right+'</div><p class="hint">'+t.hint+'</p></div>'
+ +'<div class="pw rv"><span class="lbl">'+t.pr+'</span><div class="pgrid">'+left+right+'</div><p class="hint">'+t.hint+'</p><p class="cashn">'+cs(t)[0]+'</p><p class="hint">'+cs(t)[1]+'</p></div>'
  +'<p class="txt rv">'+L(d.t)+' <b>'+END[lang]+'</b></p>'+rt
  +'</section>'}
 function ctaHref(k){var t=Object.assign({},T[lang],X[lang]),d=D.filter(function(x){return x.k==k})[0],txt=t.wa+L(d.n);
@@ -319,6 +323,7 @@ function home(t){
  +D.map(function(d,i){var m=minp(d);
   return '<a class="card" href="#'+d.k+'">'+cardImg(d.k)+'<span class="no">'+('0'+(i+1)).slice(-2)+'</span>'+CAR+'<span class="nm"><em>'+L(d.tl)+'</em><b>'+L(d.n)+'</b></span><span class="pr">'+(m===null?'<b style="font-size:12px;letter-spacing:.16em">'+t.tba+'</b>':'<small>'+t.od+'</small><b>'+m+'<i>'+t.km+'</i></b>')+'</span></a>'}).join('')+'</section>'
  +'<section class="sec"><span class="lbl">My Way</span><h2>'+t.how+'</h2><div class="steps">'+t.st.map(function(s,i){return '<div class="st"><div class="num">'+(i+1)+'</div><div><b>'+s[0]+'</b><span>'+s[1]+'</span></div></div>'}).join('')+'</div></section>'
+ +'<div class="cashb"><b>'+cs(t)[0]+'</b><span>'+cs(t)[1]+'</span></div>'
  +'<footer class="foot">'+LOGO+'<div class="gl"></div><span class="lbl">'+t.ct+'</span><div class="crow">'
  +'<a class="c" href="'+wa(t.wa)+'" target="_blank" rel="noopener">'+I.wa+'WhatsApp · 061 342 302</a>'
  +'<a class="c" href="tel:+38761342302">'+I.ph+'061 342 302</a><a class="c" href="tel:+387603110086">'+I.ph+'060 311 0086</a>'
